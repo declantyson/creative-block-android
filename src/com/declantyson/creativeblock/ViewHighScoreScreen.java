@@ -1,6 +1,7 @@
 package com.declantyson.creativeblock;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -21,6 +22,7 @@ import android.net.ParseException;
 import com.kilobolt.framework.Game;
 import com.kilobolt.framework.Graphics;
 import com.kilobolt.framework.Screen;
+import com.kilobolt.framework.Input.TouchEvent;
 
 public class ViewHighScoreScreen extends Screen {
 	public boolean playersScoreIsInTopTen = false;
@@ -40,6 +42,7 @@ public class ViewHighScoreScreen extends Screen {
 		paint.setAntiAlias(true);
 		
 		playername = name;
+		if(playername == "" || playername == null) playername = "You";
 		playerscore = score;
 		
 		cb = creativeblock;
@@ -77,6 +80,16 @@ public class ViewHighScoreScreen extends Screen {
 
 	@Override
 	public void update(float deltaTime) {
+		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+		
+		int len = touchEvents.size();
+		for (int i = 0; i < len; i++) {
+            TouchEvent event = touchEvents.get(i);
+            if (event.type == TouchEvent.TOUCH_UP) {
+            	cb.goToMainMenuScreen(game);
+            }
+		}
+		
 		timer++;
 		Graphics g = game.getGraphics();
 		g.drawImage(Assets.highScoreBg, 0, 0);
@@ -88,7 +101,7 @@ public class ViewHighScoreScreen extends Screen {
 				e.printStackTrace();
 			}
 		}
-		if(!playersScoreIsInTopTen) {
+		if(!playersScoreIsInTopTen && playerscore != -1) {
 			paint.setColor(Color.WHITE);
 			g.drawString("" + playername, 120, 680, paint);
 			g.drawString("" + playerscore, 300, 680, paint);

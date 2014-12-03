@@ -35,12 +35,21 @@ public class MainMenuScreen extends Screen {
             if (event.type == TouchEvent.TOUCH_UP) {
                 if (inBounds(event, 54, 380, 160, 35)) {
                 	cb.goToGameScreen(game, "easy");
-                } else if (inBounds(event, 54, 467, 160, 35)) {
+                } else if (inBounds(event, 54, 480, 160, 35)) {
                 	cb.goToGameScreen(game, "med"); 
-                } else if (inBounds(event, 54, 555, 160, 35)) {
+                } else if (inBounds(event, 54, 580, 160, 35)) {
                 	cb.goToGameScreen(game, "hard");               
                 } else if (inBounds(event, 0, 0, 50, 50)) {
-                	cb.goToGameScreen(game, "debug");               
+                	//cb.goToGameScreen(game, "debug");               
+                } else if (inBounds(event, 54, 615, 160, 35)) {
+                	Difficulty d = new Difficulty("hard");
+                	cb.goToViewHighScoreScreen(cb, -1, d, "");  
+                } else if (inBounds(event, 54, 515, 160, 35)) {
+                	Difficulty d = new Difficulty("med");
+                	cb.goToViewHighScoreScreen(cb, -1, d, "");  
+                } else if (inBounds(event, 54, 415, 160, 35)) {
+                	Difficulty d = new Difficulty("easy");
+                	cb.goToViewHighScoreScreen(cb, -1, d, "");  
                 } 
             }
 		}

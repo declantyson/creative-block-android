@@ -90,6 +90,20 @@ public class LoadingScreen extends Screen {
 		Assets.musicPlant = musicPlantAnim;
 		Assets.musicPlantFinal = g.newImage("plants/music/frame35.png", ImageFormat.RGB565);
 		
+		Animation scripturePlantAnim = new Animation();
+		for(int i = 1; i <= 30; i++) {
+			scripturePlantAnim.addFrame(g.newImage("plants/frame" + i + ".png", ImageFormat.RGB565), 2000);
+		}
+			
+		scripturePlantAnim.addFrame(g.newImage("plants/scripture/frame31.png", ImageFormat.RGB565), 2000);
+		scripturePlantAnim.addFrame(g.newImage("plants/scripture/frame32.png", ImageFormat.RGB565), 2000);
+		scripturePlantAnim.addFrame(g.newImage("plants/scripture/frame33.png", ImageFormat.RGB565), 2000);
+		scripturePlantAnim.addFrame(g.newImage("plants/scripture/frame34.png", ImageFormat.RGB565), 2000);
+		scripturePlantAnim.addFrame(g.newImage("plants/scripture/frame35.png", ImageFormat.RGB565), 2000);
+		
+		Assets.scripturePlant = scripturePlantAnim;
+		Assets.scripturePlantFinal = g.newImage("plants/scripture/frame35.png", ImageFormat.RGB565);
+		
 		Animation blockAnim = new Animation();
 		for(int i = 1; i < 36; i++) {
 			blockAnim.addFrame(g.newImage("block/frame" + i + ".png", ImageFormat.RGB565), 1);

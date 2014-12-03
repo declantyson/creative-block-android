@@ -43,7 +43,7 @@ public class GameScreen extends Screen {
 	
 	private Background background = new Background(0,0);
 	private Image image, characterFacingRight, characterFacingLeft, characterWateringLeft, characterWateringRight, currentSprite, bgImg, slugSprite, saltSprite, waterSprite, villagerSprite, shade, characterThinkingLeft, characterThinkingRight;
-	private Animation characterWalkingRight, characterWalkingLeft, artPlant, musicPlant, blockAnim, superBlockAnim;
+	private Animation characterWalkingRight, characterWalkingLeft, artPlant, musicPlant, scripturePlant, blockAnim, superBlockAnim;
 		
 	private GameState state = GameState.Running;
 	private int runningTime;
@@ -83,20 +83,27 @@ public class GameScreen extends Screen {
 		superBlockAnim = Assets.superBlockAnimation;
 		artPlant = Assets.artPlant;
 		musicPlant = Assets.musicPlant;
+		scripturePlant = Assets.scripturePlant;
 		currentSprite = characterFacingRight;
 
 		for(int i=0;i<5;i++) {
 			Random plantGenerator = new Random();
-			int plantType = plantGenerator.nextInt(100);
+			int plantType = plantGenerator.nextInt(150);
 			
 			Plant plant = new Plant((96*i), 300);
 			
-			if(plantType > 50) {
+			if(plantType > 100) {
+				plant.setPlantAnim(scripturePlant);
+				plant.setSprite(Assets.scripturePlantFinal);
+				plant.type = 3;
+			} else if(plantType > 50) {
 				plant.setPlantAnim(musicPlant);
 				plant.setSprite(Assets.musicPlantFinal);
+				plant.type = 2;
 			} else {
 				plant.setPlantAnim(artPlant);
 				plant.setSprite(Assets.artPlantFinal);
+				plant.type = 1;
 			}
 			plant.setDeadSprite(Assets.deadPlant);
 			plant.setColumn(i);
@@ -156,7 +163,7 @@ public class GameScreen extends Screen {
 	void updateRunning(List touchEvents, float deltaTime) {
 		runningTime++;
 		
-		if(runningTime >= 100) {
+		if(runningTime >= 13800) {
 			cb.goToSubmitHighScoreScreen(game, activePlants, difficulty);
 			return;
 		}

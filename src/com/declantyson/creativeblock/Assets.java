@@ -9,7 +9,7 @@ public class Assets {
 	public static Image menu, characterFacingRight, characterFacingLeft, currentSprite, bgImg, shade,  characterThinkingLeft, characterThinkingRight, characterWateringRight, characterWateringLeft, gameOver;
 	public static Image leftIcon, rightIcon, shootIcon, shootWaterIcon, loading;
 	public static Image controls, scoreTallyBg, highScoreBg;
-	public static Image artPlantFinal, musicPlantFinal, deadPlant, waterSprite, slugSprite, saltSprite, villagerSprite;
+	public static Image artPlantFinal, musicPlantFinal, scripturePlantFinal, deadPlant, waterSprite, slugSprite, saltSprite, villagerSprite;
 	
 	public static Image sunSprite, sunSpriteSmall, rainSprite, rainSpriteSmall, pesticideSprite, pesticideSpriteSmall;
 	public static Music theme, menuTheme, gameoverTheme;
@@ -17,7 +17,7 @@ public class Assets {
 	
 	public static Animation characterWalkingRight, characterWalkingLeft, blockAnimation, superBlockAnimation;
 	
-	public static Animation artPlant, musicPlant;
+	public static Animation artPlant, musicPlant, scripturePlant;
 	
 	public Assets() {
 

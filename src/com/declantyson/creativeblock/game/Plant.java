@@ -7,7 +7,7 @@ import com.kilobolt.framework.Image;
 import java.net.URL;
 
 public class Plant {
-	public int posX, posY, health, water, column, waterSpeed;
+	public int posX, posY, health, water, column, waterSpeed, type;
 	public boolean dead = false;
 	public Image sprite, deadSprite;
 	public Animation plantAnim;

@@ -79,7 +79,6 @@ public class CreativeBlock extends AndroidGame {
 				// Set an EditText view to get user input 
 				final EditText input = new EditText(mContext);
 				alert.setView(input);
-		
 				alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
 					playername = input.getText().toString();
@@ -97,6 +96,7 @@ public class CreativeBlock extends AndroidGame {
 				});
 				
 				AlertDialog alertDialog = alert.create();
+				alertDialog.setCanceledOnTouchOutside(false);
 				alertDialog.show();
 			}
 		});
