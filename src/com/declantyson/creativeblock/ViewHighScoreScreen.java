@@ -49,7 +49,7 @@ public class ViewHighScoreScreen extends Screen {
 		timer = 0;
 		
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpGet httpget = new HttpGet(SOMEURL);
+		HttpGet httpget = new HttpGet("http://api.declantyson.net/GetHighScores.aspx?difficulty=" + difficulty.diffName);
 		httpget.setHeader("Accept", "application/json");
 		try {
 			HttpResponse response = httpclient.execute(httpget);

@@ -210,7 +210,7 @@ public class SubmitHighScoreScreen extends Screen {
 	public void SubmitHighScore() {
 		HttpClient httpclient = new DefaultHttpClient();
 		if(playername == "") return;
-		HttpGet httpget = new HttpGet(SOMEURL);
+		HttpGet httpget = new HttpGet("http://api.declantyson.net/AddHighScore.aspx?name=" + playername + "&score=" + score + "&difficulty=" + difficulty.diffName);
 		try {
 			HttpResponse response = httpclient.execute(httpget);
 		} catch (ClientProtocolException e) {
